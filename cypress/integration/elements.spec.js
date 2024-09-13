@@ -22,7 +22,7 @@ describe('Wirk with basic elements' , () => {
         cy.get('#resultado').should('have.text', 'Voltou!')
     });
 
-    it.only('TextFields', () => {
+    it('TextFields', () => {
         cy.get('#formNome').type('Lucas')
         cy.get('#formNome').should('have.value', 'Lucas')
         cy.get('[data-cy=dataSobrenome]').type('Assis')
@@ -36,6 +36,23 @@ describe('Wirk with basic elements' , () => {
     
     
     });
+
+    it('RadioButton', () => {
+        cy.get('#formSexoFem').click().should('be.checked')
+
+        cy.get('#formSexoMasc').should('not.be.checked')
+
+        cy.get('[name=formSexo]').should('have.length', 2)
+    })
+
+    it.only('CheckBox', () => {
+        cy.get('#formComidaPizza').click().should('be.checked')
+        
+        cy.get('[name=formComidaFavorita]').click({multiple: true})
+        cy.get('#formComidaPizza').should('not.be.checked')
+        cy.get('#formComidaVegetariana').should('be.checked')
+
+    })
 
 
 })

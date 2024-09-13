@@ -30,6 +30,7 @@ describe('Wirk with basic elements' , () => {
         cy.get('#elementosForm\\:sugestoes').type('Aprendendo Cypress')
         cy.get('#elementosForm\\:sugestoes').should('have.value', 'Aprendendo Cypress')
 
+        cy.get('#tabelaUsuarios > :nth-child(2) > :nth-child(1) > :nth-child(6) > input').type('????')
 
         cy.get('.success').should('not.be.visible')
     

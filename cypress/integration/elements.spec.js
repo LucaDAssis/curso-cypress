@@ -45,7 +45,7 @@ describe('Wirk with basic elements' , () => {
         cy.get('[name=formSexo]').should('have.length', 2)
     })
 
-    it.only('CheckBox', () => {
+    it('CheckBox', () => {
         cy.get('#formComidaPizza').click().should('be.checked')
         
         cy.get('[name=formComidaFavorita]').click({multiple: true})
@@ -53,6 +53,21 @@ describe('Wirk with basic elements' , () => {
         cy.get('#formComidaVegetariana').should('be.checked')
 
     })
+
+    it('ComboBox', () => {
+        cy.get('[data-test=dataEscolaridade]')
+        .select('Mestrado')
+        .should('have.value', 'mestrado')
+
+
+        //TODO Validar as opçoes do combo
+    });
+
+    it('ComboMult', () => {
+        cy.get('[data-testid=dataEsportes]').select(['Natacao', 'Corrida', 'Nada'])
+
+        //TODO validar opções selecionadas do combo multlipo
+    });
 
 
 })
